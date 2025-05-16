@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "muffinscorp"
+version = "1.0.3"
+description = "Python client library for MuffinsCorp AI API"
+readme = "README.md"
+authors = [
+    {name = "Aderito Muffins", email = "aderitomuffins@muffinscorp.com"}
+]
+license = {text = "MIT"}
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+keywords = ["ai", "muffinscorp", "api", "client"]
+dependencies = [
+    "requests>=2.25.0",
+    "sseclient-py>=1.7.2",
+]
+requires-python = ">=3.8"
+
+[project.urls]
+Homepage = "https://github.com/muffins-corp/muffinscorp-python"
+Issues = "https://github.com/muffins-corp/muffinscorp-python/issues"
+
+[tool.setuptools]
+packages = ["muffinscorp"]

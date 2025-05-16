@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+muffinscorp/__init__.py
+muffinscorp/client.py
+muffinscorp/exceptions.py
+muffinscorp/utils.py
+muffinscorp.egg-info/PKG-INFO
+muffinscorp.egg-info/SOURCES.txt
+muffinscorp.egg-info/dependency_links.txt
+muffinscorp.egg-info/requires.txt
+muffinscorp.egg-info/top_level.txt
