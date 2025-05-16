@@ -1,30 +1,30 @@
-# MuffinsCorp AI Python Client
+# MuffinsCorp AI Cliente Python
 
-A Python client library for the MuffinsCorp AI API.
+Uma biblioteca cliente em Python para a API MuffinsCorp AI.
 
-## Installation
+## Instalação
 
 ```bash
 pip install muffinscorp
 ```
 
-## Quick Start
+## Começo Rápido
 
 ```python
 import os
 from muffinscorp import MuffinsCorp
 
-# Set API key as environment variable
-os.environ["MUFFINS_AI_API_KEY"] = "your-api-key-here"
+# Definir chave da API como variável de ambiente
+os.environ["MUFFINS_AI_API_KEY"] = "sua-chave-de-api-aqui"
 
-# Initialize client
+# Inicializar cliente
 client = MuffinsCorp()
 
-# Send a message to the AI model
+# Enviar mensagem ao modelo de IA
 response = client.chat.create(
     messages=[
-        {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": "Hello, how are you today?"}
+        {"role": "system", "content": "Você é um assistente útil."},
+        {"role": "user", "content": "Olá, como você está hoje?"}
     ],
     model="chat-model-small",
     stream=False
@@ -33,97 +33,97 @@ response = client.chat.create(
 print(response)
 ```
 
-## Streaming Responses
+## Respostas em Fluxo Contínuo (Streaming)
 
 ```python
 import os
 from muffinscorp import MuffinsCorp
 
-# Set API key as environment variable
-os.environ["MUFFINS_AI_API_KEY"] = "your-api-key-here"
+# Definir chave da API como variável de ambiente
+os.environ["MUFFINS_AI_API_KEY"] = "sua-chave-de-api-aqui"
 
-# Initialize client
+# Inicializar cliente
 client = MuffinsCorp()
 
-# Stream the response
+# Transmitir a resposta em fluxo
 for chunk in client.chat.create(
     messages=[
-        {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": "Write a short story about a robot baker."}
+        {"role": "system", "content": "Você é um assistente útil."},
+        {"role": "user", "content": "Escreva uma curta história sobre um robô padeiro."}
     ],
     model="chat-model-small",
     stream=True
 ):
-    # Process each chunk as it arrives
+    # Processar cada parte conforme chega
     print(chunk)
 ```
 
-## Available Resources
+## Recursos Disponíveis
 
 ### Chat
 
-Create chat completions with various models.
+Criar conclusões de chat com vários modelos.
 
 ```python
-# Create a chat completion
+# Criar uma conclusão de chat
 response = client.chat.create(
     messages=[
-        {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": "Hello, how are you today?"}
+        {"role": "system", "content": "Você é um assistente útil."},
+        {"role": "user", "content": "Olá, como você está hoje?"}
     ],
     model="chat-model-small",
     stream=False
 )
 ```
 
-### Models
+### Modelos
 
-List available models.
+Listar modelos disponíveis.
 
 ```python
-# Get available models
+# Obter modelos disponíveis
 models = client.models.list()
 print(models)
 ```
 
-### Subscriptions
+### Assinaturas
 
-List available subscription plans.
+Listar planos de assinatura disponíveis.
 
 ```python
-# Get available subscription plans
+# Obter planos de assinatura disponíveis
 plans = client.subscriptions.list()
 print(plans)
 ```
 
-### Credits
+### Créditos
 
-Check your account balance.
+Verificar saldo da conta.
 
 ```python
-# Get credit balance
+# Obter saldo de créditos
 balance = client.credits.get_balance()
-print(f"Credits remaining: {balance['credits']}")
+print(f"Créditos restantes: {balance['credits']}")
 ```
 
-## Error Handling
+## Tratamento de Erros
 
 ```python
 from muffinscorp import MuffinsCorp, AuthenticationError, CreditError
 
 try:
-    client = MuffinsCorp(api_key="invalid-key")
+    client = MuffinsCorp(api_key="chave-inválida")
     response = client.chat.create(
-        messages=[{"role": "user", "content": "Hello"}]
+        messages=[{"role": "user", "content": "Olá"}]
     )
 except AuthenticationError as e:
-    print(f"Authentication error: {e}")
+    print(f"Erro de autenticação: {e}")
 except CreditError as e:
-    print(f"Credit error: {e}, remaining credits: {e.credits_remaining}")
+    print(f"Erro de crédito: {e}, créditos restantes: {e.credits_remaining}")
 except Exception as e:
-    print(f"General error: {e}")
+    print(f"Erro geral: {e}")
 ```
 
-## License
+## Licença
 
 MIT
